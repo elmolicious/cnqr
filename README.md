@@ -1,6 +1,6 @@
-# qnqr
+# cnqr
 
-qnqr (Conquer) is a game idea based on the principle to conquer all enemy capture points to win the game by annihilating your opponents forces.
+cnqr (Conquer) is a game idea based on the principle to conquer all enemy capture points to win the game by annihilating your opponents forces.
 
 ## Basic Structure
 
