@@ -1,0 +1,27 @@
+{
+  "name": "qnqr",
+  "version": "0.0.0",
+  "description": "see Readme",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"this game doesn't have tests jet\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elmolicious/qnqr.git"
+  },
+  "keywords": [
+    "game",
+    "pixijs",
+    "socket.io",
+    "webgl",
+    "javascript",
+    "strategy"
+  ],
+  "author": "Robin Genske <robin.genske@gmail.com>",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/elmolicious/qnqr/issues"
+  },
+  "homepage": "https://github.com/elmolicious/qnqr#readme"
+}
