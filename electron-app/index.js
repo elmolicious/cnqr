@@ -12,7 +12,7 @@ function create_game_window() {
 	window = new BrowserWindow({width: 1600, height: 900})
 
 	window.loadURL(url.format({
-		pathname: path.join(__dirname, 'app', 'index.html'),
+		pathname: path.join(__dirname, '..', 'app', 'index.html'),
 		protocol: 'file:',
 		slashes: true
 	}));
