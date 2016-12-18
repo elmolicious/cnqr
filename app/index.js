@@ -1,18 +1,19 @@
+'use strict';
+
 const PIXI = require('pixi.js');
 
 const Container = PIXI.Container;
-const loader = PIXI.loader;
 const resources = PIXI.loader.resources;
 const Sprite = PIXI.Sprite;
+
+const assets = require('./assets/assets.js');
 
 let renderer;
 let stage;
 
 let capture_point;
 
-loader
-	.add(["assets/capture_points/capture_point_blue.png", "assets/capture_points/capture_point_red.png", "assets/capture_points/capture_point_neutral.png"])
-	.load(setup);
+assets.load(setup)
 
 function setup() {
 	renderer = PIXI.autoDetectRenderer(300, 300);
@@ -23,7 +24,7 @@ function setup() {
 
 	stage = new Container();
 
-	capture_point = new Sprite(resources["assets/capture_points/capture_point_blue.png"].texture);
+	capture_point = new Sprite(resources['cp_blue'].texture);
 	capture_point.x = 0;
 	capture_point.y = 0;
 	stage.addChild(capture_point);
