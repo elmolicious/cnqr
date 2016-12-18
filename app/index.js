@@ -1,18 +1,22 @@
 'use strict';
 
+//Globally load dependencies
+const _ = require('lodash');
 const PIXI = require('pixi.js');
 
+//Add shortcuts
 const Container = PIXI.Container;
 const resources = PIXI.loader.resources;
 const Sprite = PIXI.Sprite;
 
-const assets = require('./assets/assets.js');
+const assets = require('./assets/assets');
+const points = require('./entities/points/points')
 
+//Variables used in both setup and the gameloop
 let renderer;
 let stage;
 
-let capture_point;
-
+//Start after loading all assets
 assets.load(setup)
 
 function setup() {
@@ -24,10 +28,7 @@ function setup() {
 
 	stage = new Container();
 
-	capture_point = new Sprite(resources['cp_blue'].texture);
-	capture_point.x = 0;
-	capture_point.y = 0;
-	stage.addChild(capture_point);
+	points.add(stage, {player: 'player1'})
 
 	gameLoop();
 }
@@ -37,8 +38,7 @@ function gameLoop() {
 	//Loop this function 60 times per second
 	requestAnimationFrame(gameLoop);
 
-	capture_point.x++;
-	//Move the cat 1 pixel per frame
+	points.update();
 
 	//Render the stage
 	renderer.render(stage);

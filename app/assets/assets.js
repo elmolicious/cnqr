@@ -4,9 +4,9 @@ var loader = PIXI.loader;
 
 function load(callback) {
 	loader
-		.add('cp_blue', 'assets/capture_points/capture_point_blue.png')
-		.add('cp_red', 'assets/capture_points/capture_point_blue.png')
-		.add('cp_neutral', 'assets/capture_points/capture_point_blue.png')
+		.add('points/player1', 'assets/capture_points/capture_point_blue.png')
+		.add('points/player2', 'assets/capture_points/capture_point_red.png')
+		.add('points/neutral', 'assets/capture_points/capture_point_neutral.png')
 		.load(callback);
 }
 
