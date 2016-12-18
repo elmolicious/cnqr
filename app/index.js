@@ -2,6 +2,7 @@
 
 //Globally load dependencies
 const _ = require('lodash');
+const async = require('async');
 const PIXI = require('pixi.js');
 
 //Add shortcuts
@@ -20,20 +21,18 @@ let stage;
 //Start after loading all assets
 assets.load(setup)
 
-function setup() {
+function setup(textures, maps) {
 	renderer = PIXI.autoDetectRenderer(300, 300);
 
 	document
 		.body
 		.appendChild(renderer.view);
 
+	//create main stage to render
 	stage = new Container();
 
-	points.add(stage, {
-		player: 'player2',
-		capacity: 50,
-		initial_resources: 10
-	})
+	//Initialize all points from a map
+	_.each(maps[0].points, p => points.add(stage, p))
 
 	gameLoop();
 }
