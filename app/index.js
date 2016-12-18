@@ -8,6 +8,7 @@ const PIXI = require('pixi.js');
 const Container = PIXI.Container;
 const resources = PIXI.loader.resources;
 const Sprite = PIXI.Sprite;
+const Text = PIXI.Text;
 
 const assets = require('./assets/assets');
 const points = require('./entities/points/points')
@@ -28,7 +29,11 @@ function setup() {
 
 	stage = new Container();
 
-	points.add(stage, {player: 'player1'})
+	points.add(stage, {
+		player: 'player2',
+		capacity: 50,
+		initial_resources: 10
+	})
 
 	gameLoop();
 }
