@@ -1,10 +1,12 @@
 'use strict';
 
+//const connections = require('../connections/connections.js')
 const Point = require('./point.js').Point;
 
 let points = [];
 
 function add(scene, data) {
+	//creating all sprites
 	const point_container = new Container();
 	const point_sprite = new Sprite(resources[`points/${data.player}`].texture);
 	const point_text = new Text("Capture Point", {
@@ -13,13 +15,23 @@ function add(scene, data) {
 		fill: "black"
 	});
 
-	point_text.x = 26;
-	point_text.y = 26;
-
+	//adding sprites to the container
 	point_container.addChild(point_sprite);
 	point_container.addChild(point_text);
 
-	points.push(new Point(point_container, data));
+	//creating the point
+	const point = new Point(point_container, data)
+
+	point_text.x = 26;
+	point_text.y = 26;
+
+	point_sprite.interactive = true;
+
+	points.push(point);
+
+	point_sprite
+		.on('mousedown', onDragStart.bind(point))
+		.on('mouseup', onDragEnd.bind(point))
 
 	scene.addChild(point_container);
 }
@@ -32,3 +44,11 @@ module.exports = {
 	add,
 	update
 }
+
+function onDragStart(event) {
+	event.starting_point = this;
+};
+
+function onDragEnd(event) {
+	event.ending_point = this;
+};

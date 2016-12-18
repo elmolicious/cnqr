@@ -18,6 +18,10 @@ const points = require('./entities/points/points')
 let renderer;
 let stage;
 
+let last_time = Date.now();
+let now = Date.now();
+let delta_time;
+
 //Start after loading all assets
 assets.load(setup)
 
@@ -32,6 +36,7 @@ function setup(textures, maps) {
 
 	//create main stage to render
 	stage = new Container();
+	stage.interactive = false;
 
 	//Initialize all points from a map
 	_.each(maps[0].points, p => points.add(stage, p))
@@ -40,10 +45,15 @@ function setup(textures, maps) {
 }
 
 function gameLoop() {
-
 	//Loop this function 60 times per second
 	requestAnimationFrame(gameLoop);
 
+	//Calculate Delta time for updates
+	last_time = now;
+	now = Date.now();
+	delta_time = now - last_time;
+
+	//update data
 	points.update();
 
 	//Render the stage
