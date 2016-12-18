@@ -1,5 +1,9 @@
 'use strict';
 
+const fs = require('fs');
+
+const map_path = './app/assets/maps/';
+
 function load(callback) {
 	async
 		.series([
@@ -19,20 +23,12 @@ function load_textures(callback) {
 }
 
 function load_maps(callback) {
-	//load maps
-	const maps = [
-		{
-			points: [
-				{
-					player: 'player2',
-					capacity: 50,
-					initial_resources: 10
-				}
-			]
-		}
-	]
+	const map_files = fs.readdirSync(map_path);
+
+	const maps = _.map(map_files, mf => require('./maps/' + mf));
 
 	callback(null, maps);
+
 }
 
 module.exports = {

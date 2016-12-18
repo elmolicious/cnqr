@@ -10,7 +10,7 @@ function add(scene, data) {
 	const point_text = new Text("Capture Point", {
 		fontFamily: "Arial",
 		fontSize: 10,
-		fill: "white"
+		fill: "black"
 	});
 
 	point_text.x = 26;

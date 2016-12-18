@@ -22,7 +22,9 @@ let stage;
 assets.load(setup)
 
 function setup(textures, maps) {
-	renderer = PIXI.autoDetectRenderer(300, 300);
+	renderer = PIXI.autoDetectRenderer(600, 600);
+
+	renderer.backgroundColor = 0xFFFFFF;
 
 	document
 		.body

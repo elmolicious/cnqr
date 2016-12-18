@@ -1,0 +1,26 @@
+{
+    "name": "Default Test Map",
+    "description": "Just for testing purposes",
+    "points": [{
+        "player": "player1",
+        "capacity": 50,
+        "initial_resources": 10,
+        "x": 150,
+        "y": 150
+    }, {
+        "player": "player2",
+        "capacity": 50,
+        "initial_resources": 10,
+        "x": 400,
+        "y": 400
+    }, {
+        "player": "neutral",
+        "capacity": 50,
+        "initial_resources": 10,
+        "x": 300,
+        "y": 30
+    }],
+    "connection": [
+
+    ]
+}
