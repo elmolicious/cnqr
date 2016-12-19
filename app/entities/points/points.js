@@ -1,7 +1,7 @@
 'use strict';
 
-//const connections = require('../connections/connections.js')
-const Point = require('./point.js').Point;
+const connections = require('../connections/connections');
+const Point = require('./point').Point;
 
 let points = [];
 
@@ -31,7 +31,7 @@ function add(scene, data) {
 
 	point_sprite
 		.on('mousedown', onDragStart.bind(point))
-		.on('mouseup', onDragEnd.bind(point))
+		.on('mouseup', onDragEnd.bind({point, scene}))
 
 	scene.addChild(point_container);
 }
@@ -46,9 +46,24 @@ module.exports = {
 }
 
 function onDragStart(event) {
+	if (this.player !== 'player1')
+		return;
+
 	event.starting_point = this;
 };
 
 function onDragEnd(event) {
-	event.ending_point = this;
+	if (!event.starting_point) {
+		alert('no drag start detected');
+	}
+
+	if (this.id === event.starting_point.id)
+		return;
+
+	event.ending_point = this.point;
+
+	connections.add(this.scene, {
+		source: event.starting_point,
+		target: event.ending_point
+	})
 };

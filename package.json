@@ -28,7 +28,8 @@
   "dependencies": {
     "async": "^2.1.4",
     "lodash": "^4.17.2",
-    "pixi.js": "^4.3.0"
+    "pixi.js": "^4.3.0",
+    "victor": "^1.1.0"
   },
   "devDependencies": {
     "electron": "^1.4.10"

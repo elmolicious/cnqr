@@ -12,7 +12,8 @@ const Sprite = PIXI.Sprite;
 const Text = PIXI.Text;
 
 const assets = require('./assets/assets');
-const points = require('./entities/points/points')
+const connections = require('./entities/connections/connections');
+const points = require('./entities/points/points');
 
 //Variables used in both setup and the gameloop
 let renderer;
@@ -54,6 +55,8 @@ function gameLoop() {
 	delta_time = now - last_time;
 
 	//update data
+
+	connections.update();
 	points.update();
 
 	//Render the stage

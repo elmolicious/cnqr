@@ -7,6 +7,8 @@ function Point(sprite, data) {
 	this.text_sprite = sprite.getChildAt(1);
 
 	//data
+	this.player = data.player;
+	this.id = data.id;
 	this.x = data.x;
 	this.y = data.y;
 	this.capacity = data.capacity;
